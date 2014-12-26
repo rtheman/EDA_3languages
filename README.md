@@ -1,6 +1,6 @@
+**Exploratory Data Analysis in 3 languages (R, SAS, Python)**
+---------------------------------------------------------
 
-Exploratory Data Analysis in 3 languages (R, SAS, Python)
---
 This repository contains code and results of exploring data using three different types of tool/languages: SAS, R, and Python.
 
 In SAS, 
