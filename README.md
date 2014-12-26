@@ -23,6 +23,6 @@ Results of a survey that includes perceptions of a retailer's customer.  Results
 
 **EDA using R**
 
- 1. Mirroring to what was accomplished using SAS, the same panel data is plotted with R
+ 1. Mirroring to what was accomplished using SAS, the same panel data is plotted with R can be found [here](R/Results/Panel_plot__R.png).
 
 ------
