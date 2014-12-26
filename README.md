@@ -1,4 +1,23 @@
-EDA_3languages
-==============
+Exploratory Data Analysis in 3 languages (R, SAS, Python)
+--
+This repository contains code and results of exploring data using three different types of tool/languages: SAS, R, and Python.
 
-Results of Exploratory Data Analysis across 3 languages/tools (SAS, R, Python)
+In SAS, 
+
+In R, **dplyr** was the primarily library used to explore the dataset, while **ggvis** was used to create the visualization.  At the time of this writing (Dec 2014), a lot of the interactivity (e.g., linked-brush) are still in beta stage.  As a result, I couldn't publish results with interactivity to platforms such as Rpubs or shinyapps.io.
+
+In Python... (in progress)
+
+------
+### Brief intro. to the data set
+Results of a survey that includes perceptions of a retailer's customer.  Results are represented as percentage.  As a result, if the question to the customer was, "Lowest Price" and 53% was the measure for such question, that means 53% of respondents believe this particular retailer has the lowest price amongst its peers (competitors.)
+
+
+----------
+**EDA using SAS**
+
+ 1. To begin, relationship between Price Perception and
+    retailer's Market Share was observed.   can be  the survey was plotted , results can
+    be found at  [<i class="icon-file"></i>Results ](docs/more_word.md) shown here... 
+
+------
