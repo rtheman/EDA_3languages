@@ -18,11 +18,11 @@ Results of a survey that includes perceptions of a retailer's customer.  Results
 **EDA using SAS**
 
  1. To begin, relationship between Price Perception and
-    retailer's Market Share / Sales index / Traffic index (Panel data plot) can be found [here](SAS/Results/Panel_plot__SAS.png) in the [SAS/Results](SAS/intro.md) folder.
+    retailer's Market Share / Sales index / Traffic index (Panel data plot) can be found [here](SAS/Results/Panel_plot__SAS.png) in the [SAS/Results](SAS/) folder.
 
 
 **EDA using R**
 
- 1. Mirroring to what was accomplished using SAS, the same panel data is plotted with R can be found [here](R/Results/Panel_plot__R.png) in the [R/Results](R/intro.md) folder..
+ 1. Mirroring to what was accomplished using SAS, the same panel data is plotted with R can be found [here](R/Results/Panel_plot__R.png) in the [R/Results](R/) folder..
 
 ------
