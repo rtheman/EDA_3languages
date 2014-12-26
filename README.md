@@ -1,3 +1,4 @@
+
 Exploratory Data Analysis in 3 languages (R, SAS, Python)
 --
 This repository contains code and results of exploring data using three different types of tool/languages: SAS, R, and Python.
@@ -17,7 +18,11 @@ Results of a survey that includes perceptions of a retailer's customer.  Results
 **EDA using SAS**
 
  1. To begin, relationship between Price Perception and
-    retailer's Market Share was observed.   can be  the survey was plotted , results can
-    be found at  [<i class="icon-file"></i>Results ](docs/more_word.md) shown here... 
+    retailer's Market Share / Sales index / Traffic index (Panel data plot) can be found [here](SAS/RESULTS/Panel_plot__SAS.png) in the [SAS/Results](SAS/intro.md) folder.
+
+
+**EDA using R**
+
+ 1. Mirroring to what was accomplished using SAS, the same panel data is plotted with R
 
 ------
