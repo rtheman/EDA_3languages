@@ -15,8 +15,8 @@ library(knitr)
 ```
 
 ```{r import, message = FALSE, echo = FALSE, warning = FALSE}
-# ADS_BB <- read.csv("data/ADS_WMT__n_bldblk_updated07.csv", header=TRUE)
-ADS_BB <- read.csv("/Users/richleung/Dropbox/Projects/R/EDA/data/ADS_WMT__n_bldblk_updated07.csv", header=TRUE)
+ADS_BB <- read.csv("ADS_WMT__n_bldblk_updated07.csv", header=TRUE)
+# ADS_BB <- read.csv("/Users/richleung/Dropbox/Projects/R/EDA/data/ADS_WMT__n_bldblk_updated07.csv", header=TRUE)
 
 # -- a. Create sub data set
 tmp1 <- ADS_BB %>% 
