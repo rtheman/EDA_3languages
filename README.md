@@ -1,13 +1,13 @@
-**Exploratory Data Analysis in 3 languages (R, SAS, Python)**
+**A trilingual's journey through Exploratory Data Analysis (R, SAS, Python)**
 ---------------------------------------------------------
 
 This repository contains code and results of exploring data using three different types of tool/languages: SAS, R, and Python.
 
-In SAS, 
+In SAS, ...
 
 In R, **dplyr** was the primarily library used to explore the dataset, while **ggvis** was used to create the visualization.  At the time of this writing (Dec 2014), a lot of the interactivity (e.g., linked-brush) are still in beta stage.  As a result, I couldn't publish results with interactivity to platforms such as Rpubs or shinyapps.io.
 
-In Python... (in progress)
+In Python, ... (in progress)
 
 ------
 ### Brief introduction of the data set
