@@ -28,5 +28,28 @@ Results of a survey that includes perceptions of a retailer's customer.  Results
 
 > For a consolidated view of results produced by R, check out the results at [Rpubs](https://rpubs.com/rtheman/52290).
 
-By leveraging the **interaction** feature of ggvis, one can select point(s) on the left plot and the corresponding points will be highlighted on the plot to its right.  Check it out check out this spify plot [here](R/Results/ggvis_interactive.png).
-> Note: Since I haven't yet figure out how to have .Rmd accept relative path of my dataset, I have yet to publish this onto [shinyapps.io](https://rtheman.shinyapps.io/EDA_viz_v1/).
+By leveraging the **reactive** feature of ggvis, one can select point(s) on the left plot and the corresponding points will be highlighted on the plot to its right.  Check it out check out this spify plot [here](blah).
+
+------
+**Code**
+SAS
+
+R
+
+Python
+
+-----
+
+References used in this project:
+
+ - Intro to [Interactive Document](http://shiny.rstudio.com/articles/interactive-docs.html)
+ - R Markdown [Interactive Document](http://rmarkdown.rstudio.com/authoring_shiny_advanced.html)
+ - [Shiny tutorial](http://shiny.rstudio.com/tutorial/)
+ - [Tutorial](http://shiny.rstudio.com/articles/shinyapps.html) for the first timer with ShinyApps.io
+ - [ggvis overview](http://ggvis.rstudio.com/)
+ - a great R Studio [webinar](http://pages.rstudio.net/Webinar-Series-Recording-Essential-Tools-for-R.html) on dplyr and ggvis (reactive and interactive)
+ - [ggplot2 vignettes](http://docs.ggplot2.org/current/index.html)
+ - a presentation on [Data visualization](https://rpubs.com/conniez/datavis)
+
+
+*created by [stackedit.io](https://stackedit.io/editor#fn:stackedit)*
