@@ -1,4 +1,4 @@
-**A trilingual's journey through Exploratory Data Analysis (R, SAS, Python)**
+**A trilinguist journey through Exploratory Data Analysis (R, SAS, Python)**
 ---------------------------------------------------------
 
 This repository contains code and results of exploring data using three different types of tool/languages: SAS, R, and Python.
@@ -35,7 +35,6 @@ By leveraging the **reactive** feature of ggvis (linked-brush), one can select p
 **SAS**
 
  1. EDA via [SAS](SAS/Code/QC__ADS_Summ__BB_20141226.sas)
- 2. List item
 
 **R**
 
@@ -46,8 +45,8 @@ By leveraging the **reactive** feature of ggvis (linked-brush), one can select p
 
 **Python**
 
- 1. List item
- 2. List item
+ 1. _
+ 2. _
 
 -----
 
