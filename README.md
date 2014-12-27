@@ -41,7 +41,7 @@ By leveraging the **reactive** feature of ggvis, one can select point(s) on the 
 
  1. EDA via [R](R/Code/EDA_viz.R)
   - [Results](https://rpubs.com/rtheman/52290) in [R Markdown](R/Code/EDA_Viz.Rmd) format
- 2. Reactive (linked-brush) [plot](R/Code/EDA_viz__Reactive.Rmd)
+ 2. Reactive (linked-brush) [plot](R/Code/EDA_Viz__Reactive.Rmd)
 
 **Python**
 
