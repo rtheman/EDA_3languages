@@ -22,7 +22,6 @@ Results of a survey that includes perceptions of a retailer's customer.  Results
 
 
 ### EDA using R
-
  1. Mirroring to what was created with SAS, the same cross-sectional plat is created with R, which you can find [here](R/Results/Cross_section__R.png).
  2. Similar to the panel-data plot created by SAS, check out the same results using R [here](R/Results/Panel_plot__R.png).
 
@@ -35,9 +34,19 @@ By leveraging the **reactive** feature of ggvis, one can select point(s) on the 
 
 **SAS**
 
+ 1. EDA via SAS
+ 2. List item
+
 **R**
 
+ 1. EDA via [R](R/Code/EDA_viz.R)
+  - [Results](https://rpubs.com/rtheman/52290) in [R Markdown](R/Code/EDA_Viz.Rmd) format
+ 2. Reactive (linked-brush) [plot](R/Code/EDA_viz__Reactive.Rmd)
+
 **Python**
+
+ 1. List item
+ 2. List item
 
 -----
 

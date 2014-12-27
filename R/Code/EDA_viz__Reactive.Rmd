@@ -1,0 +1,60 @@
+---
+title: "EDA_viz v1"
+author: "Rich Leung"
+date: "December 26, 2014"
+output: html_document
+runtime: shiny
+---
+```{r setup, message=FALSE, warning=FALSE, echo=FALSE}
+library(BH)
+library(dplyr)
+library(ggvis)
+library(knitr)
+
+# opts_knit$set(root.dir=normalizePath('../'))
+```
+
+```{r import, message = FALSE, echo = FALSE, warning = FALSE}
+# ADS_BB <- read.csv("data/ADS_WMT__n_bldblk_updated07.csv", header=TRUE)
+ADS_BB <- read.csv("/Users/richleung/Dropbox/Projects/R/EDA/data/ADS_WMT__n_bldblk_updated07.csv", header=TRUE)
+
+# -- a. Create sub data set
+tmp1 <- ADS_BB %>% 
+  select(Wave, bldblk, C2_110_wgt, Sales_index_yrmon_strtyp, Trips_index_yrmon_strtyp, mkt_share_nielsen)
+```
+
+This page shows relationship between Price Perception and Market Share.
+
+```{r plot, fig.width = 4.5, fig.height = 5, echo = FALSE, warning = FALSE, results = "hold"}
+
+# -- b. Plot with trendline, coefficients, and p-Value
+# Add an ID column for linking
+tmp1$id <- seq_len(nrow(tmp1))
+
+lb <- linked_brush(keys = tmp1$id, "red")
+
+# scatter plot of Price perception and Market Share
+tmp1 %>% 
+  ggvis(~C2_110_wgt, ~mkt_share_nielsen, key := ~id) %>% 
+  layer_points(fill := "steelblue", fill.brush := "red", opacity := 0.3) %>% 
+  lb$input() %>% 
+  add_axis("x", title = "Price Perception (C2_110)") %>% 
+  add_axis("y", title = "Market Share") %>% 
+  add_axis("x", orient = "top", ticks = 0, title = "Relationship btw Price perception & Market Share by Bldg Blk by Mo.")
+
+# a subset of only selected points
+selected <- lb$selected
+both_selected <- reactive({
+  tmp1[selected(), ]
+})
+
+# scatter plot of time and Market Share
+tmp1 %>% 
+  ggvis(~Wave, ~bldblk, key := ~id) %>% 
+  layer_points(opacity := 0.3) %>% 
+  add_data(both_selected) %>%   # Overylay selected points
+  layer_points(fill := "red", opacity := 0.7) %>% 
+  add_axis("x", title = "Year-Month (wave)") %>% 
+  add_axis("y", title = "Building Block") %>% 
+  add_axis("x", orient = "top", ticks = 0, title = "Survey's measures by Building Block over time (21 mo.)")
+```

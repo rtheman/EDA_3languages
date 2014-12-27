@@ -1,0 +1,103 @@
+---
+title: "EDA_viz"
+author: "Rich Leung"
+date: "December 24, 2014"
+output: html_document
+---
+
+
+```{r declaration, echo=FALSE, message=FALSE, warning=FALSE}
+library(ggplot2)
+library(ggvis)
+library(dplyr)
+
+# Initializing working directory
+dir_Main       = "/Users/richleung/Dropbox/Projects/R/EDA"
+dir_ADS_Summary 	= "/Users/richleung/Dropbox/Documents/Accenture/Walmart/g. ADS_Summary"
+dir_ADS_BB			= "/Users/richleung/Dropbox/Documents/Accenture/Walmart/a. by Building Blocks"
+setwd(dir_Main)
+
+
+
+# Import input data set
+setwd(dir_ADS_BB)
+ADS_BB <- read.table("ADS_WMT__n_bldblk_updated07.csv", sep=",", header=TRUE)
+
+setwd(dir_ADS_Summary)
+Summ_BB <- read.table("Summary_BB.csv", sep=",", header=TRUE)
+
+setwd(dir_Main)
+```
+
+The following are results of an Exploratory Data Analysis (EDA) using R.
+
+1.) Cross-sectional plot of relationship between Price Perception and Market Share for all geographies (building blocks [41])
+```{r x-sect_plot, message=FALSE, warning=FALSE}
+tmp1 <- Summ_BB %>%
+  select(Bldblk, C2_110_wgt_avg_21mo, sales_index_yrmon_strtyp_21MO, Trips_index_yrmon_strtyp_21MO, MKT_SHARE_Nielsen_21MO)
+
+g1 <- tmp1 %>% 
+	ggvis(~C2_110_wgt_avg_21mo, ~MKT_SHARE_Nielsen_21MO, fill := "darkblue") %>% 
+	layer_points() %>% 
+	layer_model_predictions(model = "lm", se = TRUE) %>%
+	add_axis("x", title = "Price Perception (C2_110)") %>% 
+	add_axis("y", title = "Market Share") %>% 
+ 	add_axis("x", orient = "top", ticks = 0, title = "Relationship btw Price Perception and Market Share by Building Block")
+print(g1)
+```
+
+
+
+
+
+2.) Panel plot of relationship between Price Perception and Market Share for all geographies (building blocks [41]) and for all Year-Months (21-mo.)
+```{r panel_plot, message=FALSE, warning=FALSE}
+tmp1 <- ADS_BB %>%
+  select(bldblk, C2_110_wgt, Sales_index_yrmon_strtyp, Trips_index_yrmon_strtyp, mkt_share_nielsen)
+
+g1 <- tmp1 %>% 
+	ggvis(~C2_110_wgt, ~mkt_share_nielsen, fill := "darkblue") %>% 
+	layer_points() %>% 
+	layer_model_predictions(model = "lm", se = TRUE) %>% 
+	add_axis("x", title = "Price Perception (C2_110)") %>% 
+	add_axis("y", title = "Market Share") %>% 
+# 	add_title(title = "Relationship btw Price Perception & Market Share Index by Building Block")
+	add_axis("x", orient = "top", ticks = 0, title = "Relationship btw Price Perception and Market Share by Building Block by Year-Months")
+print(g1)
+```
+
+
+
+
+
+3.) Time-Series data
+
+3a. Price Perception over time (21 mo.)
+```{r timeseries_Price, message=FALSE, warning=FALSE}
+tmp <- ADS_BB %>% 
+  group_by(Wave) %>% 
+	summarise_each(funs(mean(., na.rm = TRUE)), C2_110_wgt, Sales_index_yrmon_strtyp)
+
+g <- tmp %>% 
+	ggvis(~Wave, ~C2_110_wgt, stroke = ~Sales_index_yrmon_strtyp) %>% 
+	layer_lines() %>% 
+	add_axis("x", title = "Year-Months (wave)") %>% 
+	add_axis("y", title = "Price Perception (C2_110)") %>% 
+	add_axis("x", orient = "top", ticks = 0, title = "Price perception over time (21 mo.)") 
+print (g)
+```
+
+3b. Market Share over time (21 mo.)
+```{r timeseries_MS, message=FALSE, warning=FALSE}
+tmp <- ADS_BB %>% 
+  group_by(Wave) %>% 
+	summarise_each(funs(mean(., na.rm = TRUE)), mkt_share_nielsen, Sales_index_yrmon_strtyp)
+
+g <- tmp %>% 
+	ggvis(~Wave, ~mkt_share_nielsen, stroke = ~Sales_index_yrmon_strtyp, stroke = ~Sales_index_yrmon_strtyp) %>% 
+	layer_lines() %>% 
+	add_axis("x", title = "Year-Months (wave)") %>% 
+	add_axis("y", title = "Market Share") %>% 
+	add_axis("x", orient = "top", ticks = 0, title = "Market Share over time (21 mo.)") 
+print (g)
+```
