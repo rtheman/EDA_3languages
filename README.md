@@ -27,7 +27,8 @@ Results of a survey that includes perceptions of a retailer's customer.  Results
 
 > For a consolidated view of results produced by R, check out the results at [Rpubs](https://rpubs.com/rtheman/52290).
 
-By leveraging the **reactive** feature of ggvis (linked-brush), one can select point(s) on the left plot and the corresponding points will be highlighted on the plot to its right.  Check it out check out this spify plot [here](blah).
+By leveraging the **reactive** feature of ggvis (linked-brush), one can select point(s) on the left plot and the corresponding points will be highlighted on the plot to its right.  Check out this spify plot [at ShinyApps.io](blah).
+> Until I figure out how .Rmd can use relative path that points to input data set, you can see screenshot of its solution [here](R/Results/ggvis_interactive.png)
 
 ------
 ### Code
