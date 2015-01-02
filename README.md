@@ -28,7 +28,7 @@ In R, **dplyr** was the primarily library used to explore the dataset, while **g
 I also used **plotly** to illustrates the relationship and share plots using **ggplot**.  Doing so not only to illustrate Plotly's maturity since its launch few weeks ago, but I believe it's a quick and elegant way to share plots especially given Plotly's tight integration with R and Python (as well as text file or Excel file).  However, since Plotly is still in its early stage, there are gaps with its solution at this point.  For example, trendline (using geom_smooth()) is not supported at this time.  However, one can manually insert trendline in Plotly.
 
  1. Mirroring to what was created with SAS, the same cross-sectional plat is created with R, which you can find [here](R/Results/Cross_section__R.png); [Plotly's version](https://plot.ly/~rtheman/15).
- 2. Similar to the panel-data plot created by SAS, check out the same results using R [here](R/Results/Panel_plot__R.png); [Plotly's version](https://plot.ly/~rtheman/18").
+ 2. Similar to the panel-data plot created by SAS, check out the same results using R [here](R/Results/Panel_plot__R.png); [Plotly's version](https://plot.ly/~rtheman/18).
 
 > For a consolidated view of results produced by R, check out the results at [Rpubs](https://rpubs.com/rtheman/52343).
 
