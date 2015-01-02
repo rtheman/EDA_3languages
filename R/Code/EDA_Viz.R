@@ -18,11 +18,12 @@
 library(ggplot2)
 library(ggvis)
 library(dplyr)
+py <- plotly()
 
 
 
 # Initializing working directory
-dir_Main     	= "/Users/richleung/Dropbox/Projects/R/EDA"
+dir_Main     	= "/Users/richleung/Dropbox/Projects/EDA_3languages/R/Code"
 dir_ADS_Summary = "/Users/richleung/Dropbox/Documents/Accenture/Walmart/g. ADS_Summary"
 dir_ADS_BB		= "/Users/richleung/Dropbox/Documents/Accenture/Walmart/a. by Building Blocks"
 setwd(dir_Main)
@@ -91,6 +92,14 @@ g1 <- tmp1 %>%
  	add_axis("x", orient = "top", ticks = 0, title = "Relationship btw Price Perception and Market Share by Building Block")
 print(g1)
 
+# (using Plotly via ggplot)
+g1 <- ggplot(tmp1, aes(C2_110_wgt_avg_21mo, MKT_SHARE_Nielsen_21MO)) + 
+  geom_point() + 
+  geom_smooth(method = "lm", se = FALSE, color = "blue", aes(group = 1))
+
+r <- py$ggplotly(g1)
+r$response$url
+
 
 
 # {market share index}
@@ -112,7 +121,7 @@ tmp2 <- Summ_BB %>%
 g2 <- tmp2 %>% 
 	ggvis(~C2_110_wgt_avg_21mo, ~mkt_share_strtyp, fill := "steelblue") %>% 
 	layer_points() %>% 
-	layer_model_predictions(model = "lm", se = TRUE) %>% 
+ ▸ 	layer_model_predictions(model = "lm", se = TRUE) %>% 
 	add_axis("x", title = "Price Perception (C2_110)") %>% 
 	add_axis("y", title = "Market Share Index") %>% 
 # 	add_title(title = "Relationship btw Price Perception & Market Share Index by Building Block")
@@ -149,6 +158,14 @@ g1 <- tmp1 %>%
 # 	add_title(title = "Relationship btw Price Perception & Market Share Index by Building Block")
 	add_axis("x", orient = "top", ticks = 0, title = "Relationship btw Price Perception and Market Share by Building Block by Year-Months")
 print(g1)
+
+# (using Plotly via ggplot)
+g1 <- ggplot(tmp1, aes(C2_110_wgt, mkt_share_nielsen)) + 
+  geom_point() + 
+  geom_smooth(method = "lm", se = FALSE, color = "blue", aes(group = 1))
+
+r <- py$ggplotly(g1)
+r$response$url
 
 
 
@@ -210,7 +227,7 @@ g1 <- tmp1 %>%
 print (g1)
 
 
-# 3a2.) Price perception over time by bldg blk (41)
+# 3a2.) Price perception over time by bldg blk (41) with mouse-over information
 tmp2 <- ADS_BB %>% 
   select(Wave, bldblk, C2_110_wgt)
 

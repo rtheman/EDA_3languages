@@ -3,30 +3,32 @@
 
 This repository contains code and results of exploring data using three different types of tool/languages: SAS, R, and Python.
 
-Before diving into the approaches taken across the tool sets, here's a brief introduction to the data set used for the exercise
+Before diving into the approaches taken across the tool sets, here's a brief introduction to the data set used for the exercise.
 
 ------
 ### The data set
-This data set consists of survey responses from (prospective) customers of a major retailer captured in the past 21-months period.  The survey captures sentiments/perception of various attributes of the retailer across the country delineated by [Designated Market Area (DMA)](http://seventhpoint.com/wp-content/uploads/2013/11/nielsen_dma_map_compressed.pdf).  Attributes captured include Pricing, Assortment, Access, Services, Corporate Reputation, and others.  The responses (results) from the survey are in percentage units, which translate to the percentage of respondents that agree or believe a particular applies to the retailer.  For example, if the survey question  was, "Lowest Price" and 53% was the measure's value, that means 53% of respondents believe this particular retailer has the lowest price amongst its peers (competitors).  Since some of the responses were on a scale format, I calculate the percentage of answer in the top-3 / -4 scale in order to arrive with a percentage unit.  That way, all measures are consistent, thereby we can compare and contrast these measures appropriately.
+This data set consists of survey responses from (prospective) customers of a major retailer captured in the past 21-months period.  The survey captures sentiments/perception of various attributes of the retailer across the country delineated by [Designated Market Area (DMA)](http://seventhpoint.com/wp-content/uploads/2013/11/nielsen_dma_map_compressed.pdf).  Attributes captured include Pricing, Assortment, Access, Services, Corporate Reputation, and others.  The responses (results) from the survey are in percentage units, which translate to the percentage of respondents that agree or believe the asked attribute applies to the retailer.  For example, if the survey question was, "Lowest Price" and 53% was the measure's value, that means 53% of respondents believe this particular retailer has the lowest price amongst its competitors.  Since some of the responses were on a scale format, I calculated the percentage of answer in the top-3 / -4 scale in order to arrive with a percentage unit.  That way, all measures are consistent, thereby we can compare and contrast these measures appropriately.
 
-Two form of data set was used for this EDA exercise: 
+Two forms of data were used for this EDA: 
   - Panel Data: 21-months of data at month level for each DMAs. (dimensions: temporal & geography)
   - Cross-sectional data: data summarised across all 21-months for each DMAs. (dimension: geography)
 
 
 ----------
 ### EDA using SAS
-In SAS, **proc SGSCATTER** was used to illustrate the relationship between Price perception and the retailer's Market Share / Sales / Traffic.  A linear regression fitting and cofidnece interval was included to the scatter plot (using "reg = (degree=1 clm nogroup);") to further illustrate its trend and fit.  That said, a numeric trendline value was calculated using **proc REG**.
+In SAS, **proc SGSCATTER** was used to illustrate the relationship between Price perception and the retailer's Market Share / Sales / Traffic.  A linear regression fitting and cofidnece interval were included to the scatter plot (using "reg = (degree=1 clm nogroup);") to illustrate its trend and fit.  That said, a numeric trendline value was also calculated using **proc REG**.
 
  1. The panel-data plot is created to illustrate Price perception in relations to Market Share / Sales- / Traffic index over the 21-months period.  Results can be seen [here](SAS/Results/Panel_plot__SAS.png).
  2. The cross-sectional relationship between Price Perception and retailer's Market Share / Sales- / Traffic index can be found [here](SAS/Results/Cross_section__SAS.png).
 
 
 ### EDA using R
-In R, **dplyr** was the primarily library used to explore the dataset, while **ggvis** was used to create the visualization.  At the time of this writing (Dec 2014), a lot of the interactivity (e.g., linked-brush) are still in beta stage, so not the interactivity could be buggy on its current sharing platform, shinyapps.io.  I also published plots using **plotly**, not only to illustrates its maturity since its launch few weeks ago, but I think it's a quick and elegant method to share plots especially given plotly tight integration with R and Python (as well as text file or Excel file).
+In R, **dplyr** was the primarily library used to explore the dataset, while **ggvis** was used to create the visualization.  At the time of this writing (Dec 2014), a lot of the interactivity (e.g., linked-brush) are still in beta stage, so not the interactivity could be buggy on its current sharing platform, shinyapps.io.  
 
- 1. Mirroring to what was created with SAS, the same cross-sectional plat is created with R, which you can find [here](R/Results/Cross_section__R.png).
- 2. Similar to the panel-data plot created by SAS, check out the same results using R [here](R/Results/Panel_plot__R.png).
+I also used **plotly** to illustrates the relationship and share plots using **ggplot**.  Doing so not only to illustrate Plotly's maturity since its launch few weeks ago, but I believe it's a quick and elegant way to share plots especially given Plotly's tight integration with R and Python (as well as text file or Excel file).  However, since Plotly is still in its early stage, there are gaps with its solution at this point.  For example, trendline (using geom_smooth()) is not supported at this time.  However, one can manually insert trendline in Plotly.
+
+ 1. Mirroring to what was created with SAS, the same cross-sectional plat is created with R, which you can find [here](R/Results/Cross_section__R.png); [Plotly's version](https://plot.ly/~rtheman/15).
+ 2. Similar to the panel-data plot created by SAS, check out the same results using R [here](R/Results/Panel_plot__R.png); [Plotly's version](https://plot.ly/~rtheman/18").
 
 > For a consolidated view of results produced by R, check out the results at [Rpubs](https://rpubs.com/rtheman/52343).
 
