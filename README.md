@@ -57,7 +57,7 @@ By leveraging the **reactive** feature of ggvis (linked-brush), one can select p
 
 
 -----
-References used in this project:
+References:
 
 SAS:
  - [Creating High-Quality Scatter Plots: An Old Story Told by the New SGSCATTER procedure](http://support.sas.com/resources/papers/proceedings10/057-2010.pdf); SAS Global Forum 2010
